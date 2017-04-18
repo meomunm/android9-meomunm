@@ -1,3 +1,5 @@
+import utils.Util;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -23,8 +25,8 @@ public class PlaneEnemy {
     public void planeEnemyMove() {
         this.x += SPEED_ENEMY;
         if (x % 100 == 0) {
-            Bullet bulletEnemy = new Bullet(this.x + 14 - 16, this.y + 35, loadImage("res/enemy_bullet.png"));
-            bulletsEnemy.add(bulletEnemy);
+          //  Bullet bulletEnemy = new Bullet(this.x + 14 - 16, this.y + 35, Util.loadImage("res/enemy_bullet.png"));
+          //  bulletsEnemy.add(bulletEnemy);
         }
         if (this.x >= 610) {
             this.x = -30;
@@ -40,14 +42,5 @@ public class PlaneEnemy {
         for (Bullet bulletEnemy : bulletsEnemy) {
             graphics.drawImage(bulletEnemy.getImage(), bulletEnemy.getX(), bulletEnemy.getY(), null);
         }
-    }
-
-    public Image loadImage(String path) {
-        try {
-            return ImageIO.read(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }
